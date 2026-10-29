@@ -5,6 +5,7 @@ HTML
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cargando sitio seguro...</title>
+
     <style>
         body {
             background-color: #0b132b;
@@ -24,8 +25,16 @@ HTML
             max-width: 400px;
             box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
         }
-        h1 { font-size: 24px; margin-bottom: 20px; }
-        p { font-size: 16px; color: #bdc3c7; line-height: 1.5; margin-bottom: 30px; }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            color: #bdc3c7;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
         .btn {
             display: block;
             background-color: #00b4d8;
@@ -35,15 +44,22 @@ HTML
             border-radius: 30px;
             font-weight: bold;
             font-size: 18px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #0077b6;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>Verificación requerida</h1>
         <p>Para continuar de forma segura, por favor presiona el botón para abrir en tu navegador externo:</p>
-        <!-- Forzamos la apertura externa -->
-        <a href="https://o.uvixs.com/tr?offer_id=1&aff_id=71&sub1=Banco" target="_blank" class="btn">Continuar en el navegador</a>
+        
+        <!-- Botón con enlace directo que forzará la apertura externa en Android -->
+        <a href="intent://o.uvixs.com/tr?offer_id=1&aff_id=71&sub1=Banco#Intent;scheme=https;package=com.android.chrome;end;" class="btn">Continuar en el navegador</a>
     </div>
+
 </body>
 </html>
