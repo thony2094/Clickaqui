@@ -3,62 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cargando sitio seguro...</title>
-
+    <title>Abriendo sitio oficial...</title>
     <style>
         body {
             background-color: #0b132b;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px 20px;
         }
-        .container {
+        .card {
             background-color: #1c2541;
             padding: 30px;
-            border-radius: 20px;
-            text-align: center;
+            border-radius: 15px;
             max-width: 400px;
-            box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
         }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 16px;
-            color: #bdc3c7;
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
-        .btn {
-            display: block;
+        .btn { 
             background-color: #00b4d8;
             color: white;
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 30px;
-            font-weight: bold;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
             font-size: 18px;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background-color: #0077b6;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
         }
     </style>
+    <script>
+        // Enlace de afiliado actualizado con sub1=Bancos
+        var urlFinal = "https://o.uvixs.com//tr?offer_id=1&aff_id=71&sub1=Bancos"; 
+        
+        function redirigir() {
+            var ua = navigator.userAgent || navigator.vendor || window.opera;
+            var isAndroid = ua.indexOf("Android") > -1;
+                        
+            if (isAndroid) {
+                // Esto fuerza a Android a abrir Google Chrome directamente
+                var limpiaUrl = urlFinal.replace(/^https?:\/\//, "");
+                window.location.href = "intent://" + limpiaUrl + "#Intent;scheme=https;package=com.android.chrome;end";
+            } else {
+                // Si es iPhone o PC, abre el link normal
+                window.location.href = urlFinal;
+            }
+        }
+                
+        // Ejecuta la redirección automáticamente al cargar la página
+        window.onload = function() {
+            setTimeout(redirigir, 500);
+        };
+    </script>
 </head>
 <body>
-
-    <div class="container">
-        <h1>Verificación requerida</h1>
-        <p>Para continuar de forma segura, por favor presiona el botón para abrir en tu navegador externo:</p>
-        
-        <!-- Enlace con formato Intent para forzar la apertura en Chrome / navegador externo -->
-        <a href="intent://o.uvixs.com/tr?offer_id=1&aff_id=71&sub1=Bancos#Intent;scheme=https;package=com.android.chrome;end;" class="btn">Continuar en el navegador</a>
+    <div class="card">
+        <h2>Cargando sitio seguro...</h2>
+        <p>Si la página no carga automáticamente en tu navegador, presiona el botón de abajo:</p>
+        <a href="#" onclick="redirigir(); return false;" class="btn">Presionar aquí para continuar</a>
     </div>
-
 </body>
 </html>
+
+```
